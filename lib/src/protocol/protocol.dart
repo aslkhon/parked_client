@@ -10,8 +10,8 @@ library protocol; // ignore_for_file: no_leading_underscores_for_library_prefixe
 import 'package:serverpod_client/serverpod_client.dart' as _i1;
 import 'booking_class.dart' as _i2;
 import 'booking_with_price.dart' as _i3;
-import 'example_class.dart' as _i4;
-import 'parking_class.dart' as _i5;
+import 'parking_class.dart' as _i4;
+import 'parking_with_occupancy.dart' as _i5;
 import 'record_class.dart' as _i6;
 import 'record_with_booking.dart' as _i7;
 import 'records_with_bookings.dart' as _i8;
@@ -22,8 +22,8 @@ import 'package:parked_client/src/protocol/parking_class.dart' as _i12;
 import 'package:parked_client/src/protocol/records_with_bookings.dart' as _i13;
 export 'booking_class.dart';
 export 'booking_with_price.dart';
-export 'example_class.dart';
 export 'parking_class.dart';
+export 'parking_with_occupancy.dart';
 export 'record_class.dart';
 export 'record_with_booking.dart';
 export 'records_with_bookings.dart';
@@ -54,11 +54,11 @@ class Protocol extends _i1.SerializationManager {
     if (t == _i3.BookingWithPrice) {
       return _i3.BookingWithPrice.fromJson(data, this) as T;
     }
-    if (t == _i4.Example) {
-      return _i4.Example.fromJson(data, this) as T;
+    if (t == _i4.Parking) {
+      return _i4.Parking.fromJson(data, this) as T;
     }
-    if (t == _i5.Parking) {
-      return _i5.Parking.fromJson(data, this) as T;
+    if (t == _i5.ParkingWithOccupancy) {
+      return _i5.ParkingWithOccupancy.fromJson(data, this) as T;
     }
     if (t == _i6.Record) {
       return _i6.Record.fromJson(data, this) as T;
@@ -79,11 +79,13 @@ class Protocol extends _i1.SerializationManager {
       return (data != null ? _i3.BookingWithPrice.fromJson(data, this) : null)
           as T;
     }
-    if (t == _i1.getType<_i4.Example?>()) {
-      return (data != null ? _i4.Example.fromJson(data, this) : null) as T;
+    if (t == _i1.getType<_i4.Parking?>()) {
+      return (data != null ? _i4.Parking.fromJson(data, this) : null) as T;
     }
-    if (t == _i1.getType<_i5.Parking?>()) {
-      return (data != null ? _i5.Parking.fromJson(data, this) : null) as T;
+    if (t == _i1.getType<_i5.ParkingWithOccupancy?>()) {
+      return (data != null
+          ? _i5.ParkingWithOccupancy.fromJson(data, this)
+          : null) as T;
     }
     if (t == _i1.getType<_i6.Record?>()) {
       return (data != null ? _i6.Record.fromJson(data, this) : null) as T;
@@ -133,11 +135,11 @@ class Protocol extends _i1.SerializationManager {
     if (data is _i3.BookingWithPrice) {
       return 'BookingWithPrice';
     }
-    if (data is _i4.Example) {
-      return 'Example';
-    }
-    if (data is _i5.Parking) {
+    if (data is _i4.Parking) {
       return 'Parking';
+    }
+    if (data is _i5.ParkingWithOccupancy) {
+      return 'ParkingWithOccupancy';
     }
     if (data is _i6.Record) {
       return 'Record';
@@ -162,11 +164,11 @@ class Protocol extends _i1.SerializationManager {
     if (data['className'] == 'BookingWithPrice') {
       return deserialize<_i3.BookingWithPrice>(data['data']);
     }
-    if (data['className'] == 'Example') {
-      return deserialize<_i4.Example>(data['data']);
-    }
     if (data['className'] == 'Parking') {
-      return deserialize<_i5.Parking>(data['data']);
+      return deserialize<_i4.Parking>(data['data']);
+    }
+    if (data['className'] == 'ParkingWithOccupancy') {
+      return deserialize<_i5.ParkingWithOccupancy>(data['data']);
     }
     if (data['className'] == 'Record') {
       return deserialize<_i6.Record>(data['data']);
