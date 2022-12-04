@@ -9,7 +9,7 @@
 import 'package:serverpod_client/serverpod_client.dart' as _i1;
 import 'dart:async' as _i2;
 import 'package:parked_client/src/protocol/booking_with_price.dart' as _i3;
-import 'package:parked_client/src/protocol/parking_class.dart' as _i4;
+import 'package:parked_client/src/protocol/parking_with_occupancy.dart' as _i4;
 import 'package:parked_client/src/protocol/record_with_booking.dart' as _i5;
 import 'package:parked_client/src/protocol/records_with_bookings.dart' as _i6;
 import 'package:parked_client/src/protocol/user_class.dart' as _i7;
@@ -72,12 +72,12 @@ class _EndpointParking extends _i1.EndpointRef {
   @override
   String get name => 'parking';
 
-  _i2.Future<List<_i4.Parking>> getParkings(
+  _i2.Future<List<_i4.ParkingWithOccupancy>> getParkings(
     double lat,
     double long,
     double radius,
   ) =>
-      caller.callServerEndpoint<List<_i4.Parking>>(
+      caller.callServerEndpoint<List<_i4.ParkingWithOccupancy>>(
         'parking',
         'getParkings',
         {

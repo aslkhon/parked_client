@@ -18,7 +18,7 @@ import 'records_with_bookings.dart' as _i8;
 import 'user_class.dart' as _i9;
 import 'protocol.dart' as _i10;
 import 'package:parked_client/src/protocol/booking_with_price.dart' as _i11;
-import 'package:parked_client/src/protocol/parking_class.dart' as _i12;
+import 'package:parked_client/src/protocol/parking_with_occupancy.dart' as _i12;
 import 'package:parked_client/src/protocol/records_with_bookings.dart' as _i13;
 export 'booking_class.dart';
 export 'booking_with_price.dart';
@@ -115,9 +115,10 @@ class Protocol extends _i1.SerializationManager {
           .map((e) => deserialize<_i11.BookingWithPrice>(e))
           .toList() as dynamic;
     }
-    if (t == List<_i12.Parking>) {
-      return (data as List).map((e) => deserialize<_i12.Parking>(e)).toList()
-          as dynamic;
+    if (t == List<_i12.ParkingWithOccupancy>) {
+      return (data as List)
+          .map((e) => deserialize<_i12.ParkingWithOccupancy>(e))
+          .toList() as dynamic;
     }
     if (t == List<_i13.RecordsWithBookings>) {
       return (data as List)
